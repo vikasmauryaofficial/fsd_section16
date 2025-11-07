@@ -35,7 +35,7 @@
     select {
       width: 95%;
       padding: 6px;
-      border: 1px solid #ccc; 
+      border: 1px solid #ccc;
       border-radius: 5px;
     }
     input[type="submit"],
@@ -52,7 +52,37 @@
     }
   </style>
 
-  
+  <script>
+    function validateForm() {
+      const name = document.myForm.name.value.trim();
+      const password = document.myForm.password.value.trim();
+      
+
+      // Name Validation
+      const namePattern = /^[A-Za-z ]+$/;
+      if (name === "") {
+        alert("Please enter your name");
+        return false;
+      } else if (!namePattern.test(name)) {
+        alert("Name must contain only alphabets");
+        return false;
+      } else if (name.length < 6) {
+        alert("Name should be at least 6 characters long");
+        return false;
+      }
+
+      if (password === "") {
+        alert("Please enter your password");
+        return false;
+      } else if (password.length < 6) {
+        alert("Password should be at least 6 characters long");
+        return false;
+      }
+
+      alert("Form submitted successfully!");
+      return true;
+    }
+  </script>
 </head>
 
 <body>
